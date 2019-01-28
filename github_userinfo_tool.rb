@@ -6,15 +6,38 @@ def start_api
   username = gets.chomp
   json = open("https://api.github.com/users/#{username}").read
   user = JSON.parse(json)
+  # puts user
   puts "Info about this Github user:"
+  sleep(1)
   puts " - this Github account was created in #{user["created_at"]}"
-  puts " - name: #{user["name"]}"
-  puts " - lives in #{user["location"]}"
-  puts " - works in #{user["company"]}"
-  puts " - has this blog: #{user["blog"]}"
-  puts " - email: #{user["email"]}"
-  puts " - looking for a job: #{user["hireable"]}"
-  puts " - more about this user: #{user["bio"]}"
+  if user["name"] != nil
+    sleep(1)
+    puts " - name: #{user["name"]}"
+  end
+  if user["location"] != nil
+    sleep(1)
+    puts " - lives in #{user["location"]}"
+  end
+  if user["company"] != nil
+    sleep(1)
+    puts " - works in #{user["company"]}"
+  end
+  if user["blog"] != ""
+    sleep(1)
+    puts " - has this blog: #{user["blog"]}"
+  end
+  if user["email"] != nil
+    sleep(1)
+    puts " - email: #{user["email"]}"
+  end
+  if user["hireable"] != nil
+    sleep(1)
+    puts " - is currently looking for a job"
+  end
+  if user["bio"] != nil
+    sleep(1)
+    puts " - more about this user: #{user["bio"]}"
+  end
 end
 
 puts "Want to have info on some Github user?"
