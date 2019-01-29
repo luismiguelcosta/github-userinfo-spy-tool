@@ -10,6 +10,7 @@ def start_api
   puts "Info about this Github user:"
   sleep(1)
   puts " - this Github account was created in #{user["created_at"]}"
+
   if user["name"] != nil
     sleep(1)
     puts " - name: #{user["name"]}"
